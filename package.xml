@@ -1,0 +1,24 @@
+
+<package>
+  <name>lidar_wallfollowing</name>
+  <version>0.0.1</version>
+  <description>yeeting a yeet message</description>
+
+  <author>Ben Hall</author>
+  <maintainer email="bhall90@students.kennesaw.edu">Ben Hall</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>rosconsole</run_depend>
+    
+  <build_depend>message_generation</build_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>std_msgs</run_depend>
+  
+
+  <export>
+  </export>
+</package>

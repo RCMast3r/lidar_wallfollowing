@@ -1,0 +1,5 @@
+<launch>
+    <node name="lidar_wallfollowing_node" pkg="lidar_wallfollowing" type="lidar_wallfollowing_node" output="screen">
+        <rosparam command="load" file="$(find lidar_wallfollowing)/config/lidar_wallfollowing.yaml" />
+        </node>
+</launch>
