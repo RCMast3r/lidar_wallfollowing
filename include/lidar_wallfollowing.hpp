@@ -1,5 +1,6 @@
 #include <ros/ros.h>
-#include <ackermann_msgs/AckermannDrive.h>
+// #include <ackermann_msgs/AckermannDrive.h>
+#include <geometry_msgs/Twist.h>
 #include <sensor_msgs/LaserScan.h>
 #include <std_msgs/Float32.h>
 #include <cmath>
@@ -17,13 +18,15 @@ class lidar_wallfollowing{
     ros::NodeHandle nh_;
     ros::NodeHandle pnh_;
 
-    ros::Publisher ackermann_command_;
+    ros::Publisher command_;
     ros::Subscriber laser_subscriber_;
-    ackermann_msgs::AckermannDrive command_;
+    // ackermann_msgs::AckermannDrive command_;
+    geometry_msgs::Twist command_msg_;
 
     std::string laser_scan_topic_name_;
-    std::string ackermann_command_topic_name_;
-    // float theta_;
+    std::string command_topic_name_;
+    int upper_scan_index_;
+    float min_dist_, max_dist_;
     // float ACerror_;
     // int upper_index_;
     // int right_index_;
