@@ -92,14 +92,14 @@ namespace lidar_wallfollowing
 
         if( (nothing_on_right && !something_in_front) ){
             linx_val = 0.15;
-            angz_val = -0.4; // TURN RIGHT
+            angz_val = -0.43; // TURN RIGHT
             ROS_INFO_STREAM("turning right");
         } else if( (something_in_front)  ) {
             linx_val = 0.15;
-            angz_val = 0.4; // turn LEFT
+            angz_val = 0.43; // turn LEFT
             ROS_INFO_STREAM("turning left");
         } else {    
-            linx_val = 0.2; // 
+            linx_val = 0.3; // 
             angz_val = 0.0;
         }
 
