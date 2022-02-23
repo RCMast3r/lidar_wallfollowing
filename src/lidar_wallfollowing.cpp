@@ -61,19 +61,25 @@ namespace lidar_wallfollowing
         
 
         int len = scan.ranges.size();
+        
         float max = 0.0;
         for (int i=0; i < scan.ranges.size(); i++) {
             if( !isinf(scan.ranges.at(i)) && scan.ranges.at(i) >= max){
                 max =scan.ranges.at(i);
             }
         }
-        bool nothing_on_right = scan.ranges.at(270) > 2.0;
-        bool something_in_front = scan.ranges.at(350) < 2.0;
+
+
+        bool nothing_on_right = scan.ranges.at(280) > min_dist_;
+
+        ROS_INFO_STREAM("right: " << scan.ranges.at(280));
+        ROS_INFO_STREAM("left: " << scan.ranges.at(0));
+        bool something_in_front = scan.ranges.at(0) < max_dist_;
         // ROS_INFO_STREAM("minimum using min element: " << min);
         // ROS_INFO_STREAM("max using regular method: " << max);
-        if(nothing_on_right) {
-            ROS_INFO_STREAM("there is nothing directly on the right");
-        }
+        // if(nothing_on_right) {
+            // ROS_INFO_STREAM("there is nothing directly on the right");
+        // }
 
         
         
@@ -92,14 +98,14 @@ namespace lidar_wallfollowing
 
         if( (nothing_on_right && !something_in_front) ){
             linx_val = 0.15;
-            angz_val = -0.43; // TURN RIGHT
+            angz_val = -0.4; // TURN RIGHT
             ROS_INFO_STREAM("turning right");
         } else if( (something_in_front)  ) {
             linx_val = 0.15;
-            angz_val = 0.43; // turn LEFT
+            angz_val = 0.4; // turn LEFT
             ROS_INFO_STREAM("turning left");
         } else {    
-            linx_val = 0.3; // 
+            linx_val = 0.3; 
             angz_val = 0.0;
         }
 
